@@ -55,15 +55,39 @@ def png_bytes(scale=1):
     )
 
 
+def png_identity(data):
+    """Compare pixels, dimensions and CRCs; zlib versions may compress differently."""
+    if data[:8] != b"\x89PNG\r\n\x1a\n":
+        raise ValueError("Not a PNG")
+    offset, header, compressed = 8, None, b""
+    while offset < len(data):
+        size = struct.unpack_from(">I", data, offset)[0]
+        kind = data[offset+4:offset+8]
+        payload = data[offset+8:offset+8+size]
+        crc = struct.unpack_from(">I", data, offset+8+size)[0]
+        if zlib.crc32(kind+payload) != crc:
+            raise ValueError("PNG chunk checksum mismatch")
+        if kind == b"IHDR":
+            header = payload
+        elif kind == b"IDAT":
+            compressed += payload
+        elif kind != b"IEND":
+            raise ValueError("Unexpected icon chunk")
+        offset += size+12
+    if offset != len(data) or header is None:
+        raise ValueError("Incomplete PNG")
+    return header, zlib.decompress(compressed)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="fail if committed PNGs differ")
+    parser.add_argument("--check", action="store_true", help="fail if committed PNG pixels or dimensions differ")
     args = parser.parse_args()
     for name, scale in (("icon.png", 1), ("icon-preview.png", 16)):
         path = ROOT / "assets" / name
         data = png_bytes(scale)
         if args.check:
-            if not path.exists() or path.read_bytes() != data:
+            if not path.exists() or png_identity(path.read_bytes()) != png_identity(data):
                 raise SystemExit(f"Outdated generated asset: {path.relative_to(ROOT)}")
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
