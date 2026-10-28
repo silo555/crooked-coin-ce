@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-#define CC_VERSION "0.1.0"
+#define CC_VERSION "0.1.1"
 #define CC_HISTORY 13
 #define CC_SAVE_SIZE 640
 #define CC_BANK_MAX UINT64_C(9000000000000000)

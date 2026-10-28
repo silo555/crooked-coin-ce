@@ -1,6 +1,6 @@
 # Testing and remaining validation
 
-Version 0.1.0 is a preview. Native compilation and transfer validation are separate from calculator execution.
+Version 0.1.1 is a preview. Native compilation and transfer validation are separate from calculator execution.
 
 ## Completed
 
@@ -11,9 +11,9 @@ Version 0.1.0 is a preview. Native compilation and transfer validation are separ
 - Journal tests cover the CRC known vector,11,520 single-bit mutations,2,160 truncated/interrupted records, semantic rejection, generation wraparound, failed reads/writes/readback/archive, retry protection, and foreign-name preservation.
 - Integration tests combine actual UI/engine state, serialization and journal recovery, including interrupted achievement saves. See CI output for their case count.
 - The actual C renderer generated ten reviewed host screenshots, clearly identified as setup fixtures. A browser play check completed the handbook, started a flip, and opened the shop during flight.
-- The prepared CI example contains host ASan/UBSan and the pinned official Linux CEdev build. It is inactive pending GitHub `workflow` authorization; no GitHub CI run has occurred. Do not infer CI success from this workflow file.
+- Active CI contains host ASan/UBSan and the pinned official Linux CEdev build. Release notes identify the verified run. Do not infer CI success from the workflow file alone.
 
-Local Windows tests passed with the already-installed Zig 0.15.2 C compiler, assertions explicitly enabled, both normally and with UndefinedBehaviorSanitizer. The prepared Linux CI also requests AddressSanitizer, which has not yet run. The native compiler issues upstream linker notices concerning GNU-stack metadata; these are not calculator execution failures.
+Local Windows tests passed with the already-installed Zig 0.15.2 C compiler, assertions explicitly enabled, both normally and with UndefinedBehaviorSanitizer. Linux CI also runs AddressSanitizer. The native compiler issues upstream linker notices concerning GNU-stack metadata; these are not calculator execution failures.
 
 ## Not yet verified
 

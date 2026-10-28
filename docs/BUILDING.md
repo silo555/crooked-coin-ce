@@ -62,4 +62,4 @@ The first command serves a local preview at `http://127.0.0.1:8766` (use `--port
 | `preview/` | Same portable C code in a desktop shared library and local web UI |
 | `tests/fixtures/` | Numerical observations and source digests, no extracted source/assets |
 
-The [prepared CI workflow](build-workflow.yml.example) pins the official v15.0 archive by SHA-256. It is currently inactive because the GitHub sign-in lacks `workflow` permission. After authorization, move it to `.github/workflows/ci.yml`. Changes to the toolchain pin should be deliberate and tested. Do not add commercial binaries, decompiled code, personal saves, credentials, or ROMs to the repository.
+The [CI workflow](../.github/workflows/ci.yml) pins the official v15.0 archive by SHA-256. Changes to the toolchain pin should be deliberate and tested. Do not add commercial binaries, decompiled code, personal saves, credentials, or ROMs to the repository.

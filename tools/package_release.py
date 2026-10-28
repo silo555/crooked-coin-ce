@@ -9,7 +9,7 @@ import zipfile
 from verify_8xp import read_icon_asm, verify
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v0.1.0"
+VERSION = "v0.1.1"
 
 
 def main():
@@ -27,6 +27,7 @@ def main():
     inputs += sorted((ROOT / "docs").rglob("*"))
     inputs += sorted((ROOT / "assets").glob("*.png"))
     inputs += sorted((ROOT / "tests/fixtures").glob("*.json"))
+    inputs += [ROOT / ".github/workflows/ci.yml"]
     with zipfile.ZipFile(calculator, "w", zipfile.ZIP_DEFLATED) as archive:
         archive.write(binary, "CrookedCoinCE/CROOKED.8xp")
         for path in inputs:

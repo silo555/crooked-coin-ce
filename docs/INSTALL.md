@@ -11,7 +11,7 @@ Use an existing working calculator setup when possible. Do not update the calcul
 
 ## Transfer
 
-1. Download `CROOKED.8xp` from the [preview release](https://github.com/silo555/crooked-coin-ce/releases/tag/v0.1.0). If using the ZIP, extract it first.
+1. Download `CROOKED.8xp` from the [preview release](https://github.com/silo555/crooked-coin-ce/releases/tag/v0.1.1). If using the ZIP, extract it first.
 2. Connect the calculator by USB and open the official [TI Connect CE](https://education.ti.com/en/products/computer-software/ti-connect-ce-sw).
 3. Transfer required libraries and `CROOKED.8xp` to Archive.
 4. In Cesium or your compatible native launcher, select `CROOKED` and run it. The selected description is **Crooked Coin CE**.
