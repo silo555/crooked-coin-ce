@@ -15,7 +15,7 @@ These screenshots come from the actual C renderer on a host computer, using labe
 
 ## Download and install
 
-Get `CROOKED.8xp` or the calculator ZIP from the [v0.1.1 preview release](https://github.com/silo555/crooked-coin-ce/releases/tag/v0.1.1). The repository and release remain private until the owner approves public visibility.
+Get `CROOKED.8xp` or the calculator ZIP from the public [v0.1.1 preview release](https://github.com/silo555/crooked-coin-ce/releases/tag/v0.1.1).
 
 1. Install the official [CE libraries v15.0](https://github.com/CE-Programming/libraries/releases/tag/v15.0), normally by transferring `clibs.8xg` with [TI Connect CE](https://education.ti.com/en/products/computer-software/ti-connect-ce-sw). Already installed compatible libraries can be reused.
 2. Transfer `CROOKED.8xp` to **Archive** on a TI-84 Plus CE or TI-84 Plus CE Python.
